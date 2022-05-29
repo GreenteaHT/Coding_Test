@@ -16,7 +16,10 @@
 N = int(input())
 for i in range(N):
     a, b = map(int, input().split())
-    b %= 4
-    if b == 0:
-        b = 4
-    print((a % 10)**b % 10)
+    if a%10 == 0:
+        print(10)
+    else:
+        b %= 4
+        if b == 0:
+            b = 4
+        print((a % 10)**b % 10)
