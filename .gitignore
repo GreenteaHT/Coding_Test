@@ -1,3 +1,6 @@
+# Folder
 venv/
 .idea/
+
+# FIle
 test.py
