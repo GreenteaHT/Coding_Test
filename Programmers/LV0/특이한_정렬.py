@@ -6,6 +6,9 @@ def solution(numlist, n):
     numlist_dict_sorted = dict(sorted(numlist_dict.items()))
     return list(numlist_dict_sorted.values())
 
+# def solution(numlist, n):
+#     return sorted(numlist, key=lambda x: (abs(x - n), n - x))
+
 # 입출력 예시
 print(solution([1, 2, 3, 4, 5, 6], 4))
 print(solution([10000,20,36,47,40,6,10,7000], 30))
