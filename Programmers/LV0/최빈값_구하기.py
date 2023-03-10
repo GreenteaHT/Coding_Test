@@ -1,22 +1,22 @@
 # https://school.programmers.co.kr/learn/courses/30/lessons/120812
 
 def solution(array):
-    answer = 0
     dic_tmp = {}
-    max_val = 0
-    for i in array:
-        if dic_tmp.get(i) is None:
-            dic_tmp = 1
-        else:
-            dic_tmp[i] += 1
+    max_value, max_index = 0, 0
+    duple_flg = False
+    for n in array:
+        if n not in dic_tmp:
+            dic_tmp[n] = 0
+        dic_tmp[n] += 1
+        if dic_tmp[n] > max_value:
+            max_value = dic_tmp[n]
+            max_index = n
+            duple_flg = False
+        elif dic_tmp[n] == max_value:
+            duple_flg = True
+    return -1 if duple_flg else max_index
 
-    return answer
-
-
-dic = {}
-
-if dic.get(1):
-    print(1)
-else:
-    print(2)
-
+# 입출력 예시
+print(solution([1, 2, 3, 3, 3, 4]))
+print(solution([1, 1, 2, 2]))
+print(solution([1]))
