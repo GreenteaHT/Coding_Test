@@ -3,7 +3,7 @@
 def solution(board, moves):
     H, W = len(board), len(board[0])
     doll_stk = []
-    answer = 0
+    global answer = 0
 
     doll_pos_lst = [0] * W
     for i in range(W):
@@ -17,9 +17,19 @@ def solution(board, moves):
         elif doll_pos_lst[i] == H-1:
             doll_stk.append(board[i][H-1])
             doll_pos_lst[i] = 0
+            chk_dup(i, doll_stk)
+        else:
+            doll_stk.append(board[i][doll_pos_lst[i]])
+            doll_pos_lst[i] += 1
+            chk_dup(i, doll_stk)
 
-
-
+    def chk_dup(n, stk):
+        if len(stk) >= 2:
+            if stk[-2] == doll_stk[-1]:
+                stk.pop()
+                stk.pop()
+                answr += 1
+        return stk
 
     return answer
 
