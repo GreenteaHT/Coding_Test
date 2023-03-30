@@ -14,9 +14,10 @@ def solution(board, moves):
     for i in moves:
         if doll_pos_lst[i] == 0:
             continue
-        if doll_pos_lst[i] == H-1:
+        elif doll_pos_lst[i] == H-1:
             doll_stk.append(board[i][H-1])
             doll_pos_lst[i] = 0
+
 
 
 
