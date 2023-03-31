@@ -3,33 +3,26 @@
 def solution(board, moves):
     H, W = len(board), len(board[0])
     doll_stk = []
-    global answer = 0
+    answer = 0
 
-    doll_pos_lst = [0] * W
+    doll_pos_lst = []
     for i in range(W):
         for j in range(H):
             if board[j][i] != 0:
-                doll_pos_lst[i] = j
+                doll_pos_lst.append(j)
+                break
 
-    for i in moves:
-        if doll_pos_lst[i] == 0:
+    for k in moves:
+        pos = k - 1
+        if doll_pos_lst[pos] == H:
             continue
-        elif doll_pos_lst[i] == H-1:
-            doll_stk.append(board[i][H-1])
-            doll_pos_lst[i] = 0
-            chk_dup(i, doll_stk)
         else:
-            doll_stk.append(board[i][doll_pos_lst[i]])
-            doll_pos_lst[i] += 1
-            chk_dup(i, doll_stk)
-
-    def chk_dup(n, stk):
-        if len(stk) >= 2:
-            if stk[-2] == doll_stk[-1]:
-                stk.pop()
-                stk.pop()
-                answr += 1
-        return stk
+            doll_stk.append(board[doll_pos_lst[pos]][pos])
+            doll_pos_lst[pos] += 1
+            if doll_stk[-2:-1] == doll_stk[-1:]:
+                doll_stk.pop()
+                doll_stk.pop()
+                answer += 2
 
     return answer
 
