@@ -4,3 +4,4 @@ venv/
 
 # FIle
 test.py
+.idea/misc.xml
