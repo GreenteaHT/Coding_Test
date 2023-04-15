@@ -13,18 +13,3 @@ def solution(r1, r2):
 # 입출력 예시
 print(solution(2, 3))
 
-# def solution(r1, r2):
-#     cnt = 0
-#     for i in range(r2):
-#         if i < r1:
-#             dif1_squared = r1 ** 2 - i ** 2
-#             if dif1_squared <= 0:
-#                 dif1 = 0
-#             else:
-#                 dif1 = int(dif1_squared ** 0.5)
-#         else:
-#             dif1 = 0
-#         dif2 = int((r2 ** 2 - i ** 2) ** 0.5)
-#         cnt += dif2 - dif1 + (1 if dif1 == int(dif1) else 0)
-#     cnt += 1
-#     return cnt * 4
