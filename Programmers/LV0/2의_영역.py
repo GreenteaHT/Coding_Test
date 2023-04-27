@@ -1,8 +1,12 @@
 # https://school.programmers.co.kr/learn/courses/30/lessons/181894
 
 def solution(arr):
-    answer = []
-    return answer
+    try:
+        f_p = arr.index(2)
+        l_p = arr[::-1].index(2)
+        return arr[f_p:-l_p]
+    except:
+        return [-1]
 
 # 입출력 예시
 print(solution([1, 2, 1, 4, 5, 2, 9]))
