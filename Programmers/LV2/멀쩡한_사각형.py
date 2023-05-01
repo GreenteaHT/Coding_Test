@@ -17,10 +17,12 @@ import math
 #     n_blank_box = (n_blank_box - 1) * gcd
 #     return w * h - n_blank_box
 
+import math
+
 def solution(w, h):
     w, h = min(w, h), max(w, h)
     gcd = math.gcd(w, h)
-    return w * h - (h//gcd + (w//gcd - 1)) * gcd
+    return w * h - (h + w - gcd)
 
 # 입출력 예시
 print(solution(8, 12))
