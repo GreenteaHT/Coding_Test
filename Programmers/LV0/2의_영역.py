@@ -5,7 +5,7 @@ def solution(arr):
         f_p = arr.index(2)
         l_p = arr[::-1].index(2)
         return arr[f_p:len(arr)-l_p]
-    except:
+    except:  # 2가 없을 때
         return [-1]
 
 # 입출력 예시
