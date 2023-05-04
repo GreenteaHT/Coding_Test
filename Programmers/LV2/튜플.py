@@ -3,7 +3,7 @@
 def solution(s):
     duple_check_set = set()
     answer = []
-    s_lst = sorted([set(i.split(',')) for i in s[2:-2].split('},{')], key=lambda x: len(x))
+    s_lst = sorted([set(i.split(',')) for i in s[2:-2].split('},{')], key=len)
     for i in s_lst:
         n = (i - duple_check_set).pop()
         answer.append(int(n))
