@@ -5,4 +5,4 @@ def solution(str1, str2):
 
 # 입출력 예시
 print(solution("abc", "aabcc"))
-print(solution("tbt", "tbbttb"	))
+print(solution("tbt", "tbbttb"))
