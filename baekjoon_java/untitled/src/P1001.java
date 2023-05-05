@@ -1,3 +1,5 @@
+// https://www.acmicpc.net/problem/1001
+
 import java.util.Scanner;
 public class P1001 {
     public static void main(String[] args){
