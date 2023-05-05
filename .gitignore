@@ -1,6 +1,7 @@
 # Folder
 venv/
 .idea/
+/out
 
 # FIle
 test.py
