@@ -8,5 +8,5 @@ def solution(a, d, included):
     return answer
 
 # 입출력 예시
-print(solution(3, 4, [true, false, false, true, true]))
-print(solution(7, 1, [false, false, false, true, false, false, false]))
+print(solution(3, 4, [True, False, False, True, True]))
+print(solution(7, 1, [False, False, False, True, False, False, False]))
