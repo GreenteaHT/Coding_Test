@@ -2,21 +2,19 @@
 
 def solution(a, b, c, d):
     num = [a, b, c, d]
-    n_lst = [num.count(i) for i in num]
-    score = 0
-
-    print(num[n_lst.index(4)])
-
-    # if max(n_lst) == 4:
-    #     score += 1111 * n_lst.index(3)
-    # elif max(n_lst) == 3:
-    #     score += (10 * n_lst.index(3) + n_lst.index(1))**2
-    # elif max(n_lst) == 2 and 1 not in n_lst:
-
-
-
-
-    return score
+    n_count = [num.count(i) for i in num]
+    
+    if max(n_count) == 4:
+        return 1111 * a
+    elif max(n_count) == 3:
+        return (10 * num[n_count.index(3)] + num[n_count.index(1)])**2
+    elif max(n_count) == 2:
+        if min(n_count) == 2:
+            return (a + c) *  abs(a - c) if a == b else (a + b) * abs(a - b)
+        else:
+            return (a * b * c * d) / num[n_count.index(2)]**2
+    else:
+        return min(num)
 
 # 입출력 예시
 print(solution(2, 2, 2, 2))
