@@ -1,17 +1,27 @@
 # https://school.programmers.co.kr/learn/courses/30/lessons/17677
 
-# 중복도 가능하게 수정 할 것
-
 def solution(str1, str2):
-    str1 = str1.upper()
-    str2 = str2.upper()
-    str1_set = set(str1[i] + str1[i + 1] for i in range(len(str1) - 1) if
-                'A' <= str1[i] <= 'Z' and 'A' <= str1[i + 1] <= 'Z')
-    str2_set = set(str2[j] + str2[j + 1] for j in range(len(str2) - 1) if
-                'A' <= str2[j] <= 'Z' and 'A' <= str2[j + 1] <= 'Z')
-    print(str1_set, str2_set)
-    return int(len(str1_set & str2_set) / 
-               len(str1_set | str2_set) * 65536) if str1_set | str2_set else 65536
+    str1_dic = gen_wrd_dic(str1)
+    str2_dic = gen_wrd_dic(str2)
+    
+    n_inter = 0
+    for i in str1_dic:
+        if i in str2_dic:
+            n_inter += min(str1_dic[i], str2_dic[i])
+
+    n_union = sum(str1_dic.values()) + sum(str2_dic.values()) - n_inter
+    return int((n_inter / n_union * 65536)) if n_union else 65536
+    
+def gen_wrd_dic(str):
+    str = str.upper()
+    str_dic = {}
+    for i in range(len(str) - 1):
+        if 'A' <= str[i] <= 'Z' and 'A' <= str[i + 1] <= 'Z':
+            if str[i:i+2] in str_dic:
+                str_dic[str[i:i+2]] += 1
+            else:
+                str_dic[str[i:i+2]] = 1
+    return str_dic
 
 # 입출력 예시
 print(solution('FRANCE', 'french'))
