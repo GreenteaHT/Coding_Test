@@ -1,3 +1,5 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/250125
+
 def solution(board, h, w):
     # 1
     n = len(board[0])
