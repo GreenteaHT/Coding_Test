@@ -21,4 +21,5 @@ def solution(bandage, health, attacks):
         
     return current_health if current_health > 0 else -1
 
+# 입출력 예시
 print(solution([5, 1, 5], 30, [[2, 10], [9, 15], [10, 5], [11, 5]]))
