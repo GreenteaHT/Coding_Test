@@ -21,4 +21,5 @@ def solution(board, h, w):
     
     return count
 
+# 입출력 예시
 print(solution([["blue", "red", "orange", "red"], ["red", "red", "blue", "orange"], ["blue", "orange", "red", "red"], ["orange", "orange", "red", "blue"]], 1, 1))
