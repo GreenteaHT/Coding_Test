@@ -1,13 +1,25 @@
 # https://school.programmers.co.kr/learn/courses/30/lessons/12927
 
-def solution(works, n):
-    works_cnt = len(works)
-    overtime = sum(works) - n
-    # 제일 작업량이 많은 일부터 1씩 줄여야하므로 결과적으론 모든 작업량을 더하고 작업개수로 나누는 것과 같다.
-    # 기본적으로 몫 만큼의 작업이 존재하고 나머지의 개수만큼 몫 + 1의 작업량이 존재한다.
-    print(((overtime//works_cnt) ** 2) * (works_cnt - overtime%works_cnt))
-    print(((overtime//works_cnt + 1) ** 2) * (overtime%works_cnt))
-    return ((overtime//works_cnt) ** 2) * (works_cnt - overtime%works_cnt) + ((overtime//works_cnt + 1) ** 2) * (overtime%works_cnt)
+import heapq
 
+def solution(n, works):
+    # 야근 없으면 집에 가자
+    if sum(works) <= n:
+        return 0
+
+    # 요소를 음수로 넣어 최대 힙 생성
+    works = [-work for work in works]
+    heapq.heapify(works)
+    
+    # 제일 잡업략이 많은 작업을 가져와 줄이고 다시 힙에 저장
+    for _ in range(n):
+        max_work = heapq.heappop(works)
+        heapq.heappush(works, max_work + 1)
+    
+    return sum(work ** 2 for work in works)
+    
+    
 # 입출력 예시
-print(solution([4, 3, 3], 4))
+print(solution(4, [4, 3, 3]))   # 출력: 12
+print(solution(1, [2, 1, 2]))   # 출력: 6
+print(solution(3, [1, 1]))      # 출력: 0
