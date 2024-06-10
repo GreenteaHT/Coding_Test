@@ -302,3 +302,4 @@ pyrightconfig.json
 .history
 .ionide
 main.py
+test.py
