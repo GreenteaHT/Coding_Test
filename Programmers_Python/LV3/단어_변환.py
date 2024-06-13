@@ -6,7 +6,8 @@ def solution(begin, target, words):
     if target not in words:
         return 0
     
-    queue = deque([(begin, 0)])
+    # BFS
+    queue = deque([(begin, 0)])  # (단어, 변환 단계)
     visited = set(begin)
     
     while queue:
@@ -22,7 +23,7 @@ def solution(begin, target, words):
 
     return 0
 
-
+# 단어가 한단어 차이인지 확인하는 함수
 def is_one_letter_diff(word1, word2):
     cnt = 0
     for spell1, spell2 in zip(word1, word2):
