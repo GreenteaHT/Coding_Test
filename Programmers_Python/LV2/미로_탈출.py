@@ -42,5 +42,6 @@ def solution(maps):
     
     return s_to_l + l_to_e if s_to_l and l_to_e else -1
 
+# 테스트
 print(solution(["SOOOL","XXXXO","OOOOO","OXXXX","OOOOE"]))
 print(solution(["LOOXS","OOOOX","OOOOO","OOOOO","EOOOO"]))
