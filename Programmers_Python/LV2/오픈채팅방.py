@@ -8,16 +8,16 @@ def solution(record):
     result = []
     
     for action in record:
-        print(action)
-        action = list(action.split(" "))
-        if action[0] == "Enter":
+        action = action.split(" ")
+        if action[0] == "Enter":  # 입장시 uid에 닉네임 기록
             result.append((0, action[1]))
             uid_dic[action[1]] = action[2]
         elif action[0] == "Leave":
             result.append((1, action[1]))
-        elif action[0] == "Change":
+        elif action[0] == "Change":  # 닉네임 변경시 uid에 갱신
             uid_dic[action[1]] = action[2]
     
+    # 문구 변환 및 uid를 통한 닉네임 검색
     for i in range(len(result)):
         result[i] = str(uid_dic[result[i][1]]) + "님이 " + action_expression[result[i][0]]
     
