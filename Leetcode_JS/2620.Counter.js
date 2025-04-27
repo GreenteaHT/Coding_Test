@@ -5,7 +5,6 @@
  * @return {Function} counter
  */
 var createCounter = function(n) {
-    // 함수를 반환해야하므로 아래와 같이 서술
     return function() {
         return n++;
     };
