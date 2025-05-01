@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/array-reduce-transformation/description/?envType=study-plan-v2&envId=30-days-of-javascript
+// https://leetcode.com/problems/array-reduce-transformation/description
 
 /**
  * @param {number[]} nums
@@ -6,7 +6,12 @@
  * @param {number} init
  * @return {number}
  */
-var reduce = function(nums, fn, init) {
-    nums.forEach((num) => init = fn(init, num));
-    return init;
+var reduce = function (nums, fn, init) {
+  nums.forEach((num) => (init = fn(init, num)));
+  return init;
 };
+
+// reduce를 이용한 방법법
+// var reduce = function(nums, fn, init) {
+//     return nums.reduce((accumulator, currentValue) => fn(accumulator, currentValue), init)
+// };
