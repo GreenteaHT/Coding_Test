@@ -5,13 +5,10 @@
  * @return {Promise}
  */
 
-var addTwoPromises = async function(promise1, promise2) {
-    return Promise.all([promise1, promise2])
-    .then( values => {
-       return values[0] + values[1];
-    });
+var addTwoPromises = async function (promise1, promise2) {
+  const [value1, value2] = await Promise.all([promise1, promise2]);
+  return value1 + value2;
 };
 
 // Test
-addTwoPromises(Promise.resolve(2), Promise.resolve(2))
-.then(console.log); // 4
+addTwoPromises(Promise.resolve(2), Promise.resolve(2)).then(console.log); // 4
