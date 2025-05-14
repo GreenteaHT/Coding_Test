@@ -6,11 +6,11 @@
  * @param {number} t
  * @return {Function}
  */
-var cancellable = function(fn, args, t) {
-    fn(...args);  // 초기 0ms에서 값 저장
-    const setLogInterval = setInterval(() => fn(...args), t);
-    const clearLogInterval = () => clearInterval(setLogInterval);
-    return clearLogInterval;
+var cancellable = function (fn, args, t) {
+  fn(...args);
+  const interval = setInterval(fn, t, ...args);
+
+  return () => clearTimeout(interval);
 };
 
 /**
@@ -25,11 +25,11 @@ var cancellable = function(fn, args, t) {
  *      const diff = Math.floor(performance.now() - start);
  *      result.push({"time": diff, "returned": fn(...argsArr)});
  *  }
- *       
+ *
  *  const cancel = cancellable(log, args, t);
  *
  *  setTimeout(cancel, cancelTimeMs);
- *   
+ *
  *  setTimeout(() => {
  *      console.log(result); // [
  *                           //     {"time":0,"returned":8},
@@ -39,5 +39,5 @@ var cancellable = function(fn, args, t) {
  *                           //     {"time":140,"returned":8},
  *                           //     {"time":175,"returned":8}
  *                           // ]
- *  }, cancelTimeMs + t + 15)    
+ *  }, cancelTimeMs + t + 15)
  */
